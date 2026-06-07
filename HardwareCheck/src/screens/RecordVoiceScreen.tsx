@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function RecordVoiceScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Reporte Manos Libres 🎙️</Text>
+      <Text style={styles.title}>Reporte Manos Libres</Text>
       <Text style={styles.description}>
         Espacio para las bitácoras de audio y transcripción de notas de voz.
       </Text>

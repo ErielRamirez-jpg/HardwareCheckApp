@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function ScanScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Escáner QR / Barras 📷</Text>
+      <Text style={styles.title}>Escáner QR / Barras</Text>
       <Text style={styles.description}>
         Espacio para la integración de la cámara y registro de componentes.
       </Text>
