@@ -57,6 +57,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
         secureTextEntry={type === 'password'}
         keyboardType={type === 'email' ? 'email-address' : type === 'phone' ? 'phone-pad' : 'default'}
         autoCapitalize="none"
+        placeholderTextColor="#666666" // Añade un tono sutil si decides usar placeholders
       />
       
       {showError && <Text style={styles.errorText}>{showError}</Text>}
@@ -65,7 +66,10 @@ const CustomInput: React.FC<CustomInputProps> = ({
 };
 
 const styles = StyleSheet.create({
-  container: { marginBottom: 16 },
+  container: { 
+    marginBottom: 16,
+    width: '100%',
+  },
   label: {
     color: colors.textSecondary,
     marginBottom: 6,
@@ -79,6 +83,7 @@ const styles = StyleSheet.create({
     padding: 14,
     color: colors.text,
     fontSize: 16,
+    width: '100%',
   },
   inputError: { borderColor: colors.error },
   errorText: { color: colors.error, fontSize: 12, marginTop: 4 },

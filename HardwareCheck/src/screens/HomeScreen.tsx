@@ -31,7 +31,7 @@ export default function HomeScreen() {
   return (
     <ScrollView style={styles.backgroundColorContainer}>
       <View style={styles.container}>
-        <Text style={styles.title}>HardwareCheck 🛠️</Text>
+        <Text style={styles.title}>HardwareCheck</Text>
         <Text style={styles.subtitle}>Bitácora de Mantenimiento</Text>
         
         <View style={styles.listContainer}>
