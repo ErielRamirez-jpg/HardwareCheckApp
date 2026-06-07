@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../types/navigation';
 
+// Importamos lo que creamos
+import CustomInput from '../components/CustomInput';
+import CustomButton from '../components/CustomButton';
+import { colors } from '../Theme/Colors';
+
 type LoginScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Login'>;
 
 export default function LoginScreen() {
   const navigation = useNavigation<LoginScreenNavigationProp>();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleLogin = () => {
+    setLoading(true);
+    
+    // Simulación de login (puedes mejorar esto después)
+    setTimeout(() => {
+      setLoading(false);
+      navigation.replace('HomeTabs');
+    }, 800);
+  };
 
   return (
     <View style={styles.container}>
@@ -23,13 +42,27 @@ export default function LoginScreen() {
       </View>
 
       <View style={styles.formContainer}>
-        <Text style={styles.placeholderText}>
-          [Aquí integraras los CustomInput con validaciones]
-        </Text>
         
-        <Text style={styles.placeholderText}>
-          [Aquí integraras el CustomButton]
-        </Text>
+        <CustomInput
+          label="Correo electrónico"
+          type="email"
+          value={email}
+          onChangeText={setEmail}
+        />
+
+        <CustomInput
+          label="Contraseña"
+          type="password"
+          value={password}
+          onChangeText={setPassword}
+        />
+
+        <CustomButton
+          title="Iniciar Sesión"
+          onPress={handleLogin}
+          variant="primary"
+          disabled={loading}
+        />
 
         <Text 
           style={styles.bypassLink}
@@ -45,7 +78,7 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212',
+    backgroundColor: colors.background,
     padding: 24,
     justifyContent: 'center',
   },
@@ -61,26 +94,20 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: colors.text,
     letterSpacing: 0.5,
   },
   tagline: {
     fontSize: 14,
-    color: '#00e676',
+    color: colors.primary,
     marginTop: 4,
   },
   formContainer: {
     width: '100%',
     alignItems: 'center',
   },
-  placeholderText: {
-    color: '#aaaaaa',
-    fontStyle: 'italic',
-    marginVertical: 12,
-    textAlign: 'center',
-  },
   bypassLink: {
-    color: '#00e676',
+    color: colors.primary,
     marginTop: 30,
     fontWeight: '600',
     textDecorationLine: 'underline',
