@@ -24,11 +24,11 @@ export default function LoginScreen() {
 
       <View style={styles.formContainer}>
         <Text style={styles.placeholderText}>
-          [Aquí Kevin integrará los CustomInput con validaciones]
+          [Aquí integraras los CustomInput con validaciones]
         </Text>
         
         <Text style={styles.placeholderText}>
-          [Aquí Kevin integrará el CustomButton]
+          [Aquí integraras el CustomButton]
         </Text>
 
         <Text 
