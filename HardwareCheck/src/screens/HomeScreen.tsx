@@ -1,45 +1,22 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { useSelector } from 'react-redux'; 
+import { RootState } from '../store';      
 import ComponentCard from '../components/ComponentCard';
 
 export default function HomeScreen() {
-
-  const hardwareItems = [
-    {
-      id: '1',
-      name: 'Acer Predator Nitro',
-      type: 'Laptop de Desarrollo',
-      lastMaintenance: 'Abril 2026',
-      status: 'ok' as const,
-    },
-    {
-      id: '2',
-      name: 'Servidor de Respaldos',
-      type: 'Infraestructura',
-      lastMaintenance: 'Noviembre 2025',
-      status: 'critico' as const,
-    },
-    {
-      id: '3',
-      name: 'Nintendo Switch Lite',
-      type: 'Consola de Prueba',
-      lastMaintenance: 'Mayo 2026',
-      status: 'warning' as const,
-    },
-  ];
+  const hardwareItems = useSelector((state: RootState) => state.hardware.items);
 
   return (
     <ScrollView style={styles.backgroundColorContainer}>
       <View style={styles.container}>
         <Text style={styles.title}>HardwareCheck</Text>
         <Text style={styles.subtitle}>Bitácora de Mantenimiento</Text>
-        
         <View style={styles.listContainer}>
-          {/* Mapeamos el arreglo para renderizar cada tarjeta pasándole el objeto data */}
           {hardwareItems.map((item) => (
-            <ComponentCard 
-              key={item.id} 
-              data={item} 
+            <ComponentCard
+              key={item.id}
+              data={item}
               onPress={() => console.log(`Seleccionado: ${item.name}`)}
             />
           ))}
