@@ -1,20 +1,19 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
+import { Provider } from 'react-redux'; // Si usas Redux
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { Provider } from 'react-redux'; 
-import { store } from './src/store';    
+import { AuthProvider } from './src/context/AuthContext'; // Ajusta la ruta de tu AuthContext
 import AppNavigator from './src/navigation/AppNavigator';
-import { AuthProvider } from './src/context/AuthContext';  
+import { store } from './src/store'; // Si usas Redux
 
 export default function App() {
   return (
     <Provider store={store}>
-      <AuthProvider>
-        <SafeAreaProvider>
-          <StatusBar style="light" />
+      <SafeAreaProvider>
+        {/* CRÍTICO: El AuthProvider debe envolver al AppNavigator */}
+        <AuthProvider> 
           <AppNavigator />
-        </SafeAreaProvider>
-      </AuthProvider>
+        </AuthProvider>
+      </SafeAreaProvider>
     </Provider>
   );
 }
