@@ -25,7 +25,6 @@ const ComponentCard: React.FC<ComponentCardProps> = ({ data, onPress }) => {
       </View>
 
       <Text style={styles.type}>{data.type}</Text>
-      
       {data.lastMaintenance && (
         <Text style={styles.maintenance}>
           Último mantenimiento: {data.lastMaintenance}
