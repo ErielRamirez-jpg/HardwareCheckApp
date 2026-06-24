@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
 import ScanScreen from '../screens/ScanScreen';
 import RecordVoiceScreen from '../screens/RecordVoiceScreen';
+import VoiceHistoryScreen from '../screens/VoiceHistoryScreen'; // <--- 1. IMPORTAMOS LA NUEVA PANTALLA
 import { HomeTabParamList } from '../types/navigation';
 
 const Tab = createBottomTabNavigator<HomeTabParamList>();
@@ -42,7 +43,13 @@ export default function TabNavigator() {
       <Tab.Screen 
         name="RecordVoice" 
         component={RecordVoiceScreen} 
-        options={{ title: 'Nota de Voz' }}
+        options={{ title: 'Grabar' }}
+      />
+      
+      <Tab.Screen 
+        name="VoiceHistory" 
+        component={VoiceHistoryScreen} 
+        options={{ title: 'Historial' }}
       />
     </Tab.Navigator>
   );
