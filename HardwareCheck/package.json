@@ -23,7 +23,13 @@
   },
   "devDependencies": {
     "@types/react": "~19.1.10",
+    "eas-cli": "^20.3.0",
     "typescript": "~5.3.3"
+  },
+  "overrides": {
+    "react": "$react",
+    "react-dom": "$react",
+    "react-native-web": "$react-native-web"
   },
   "scripts": {
     "start": "expo start",
