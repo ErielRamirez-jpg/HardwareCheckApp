@@ -44,32 +44,6 @@ export default function LoginScreen() {
     }
   };
 
-  const handleRegister = async () => {
-    if (!email || !password) {
-      Alert.alert('Error', 'Por favor ingresa correo y contraseña');
-      return;
-    }
-
-    setLoading(true);
-
-    const { data, error } = await supabase.auth.signUp({
-      email: email.trim(),
-      password,
-    });
-
-    setLoading(false);
-
-    if (error) {
-      Alert.alert('Error al registrarse', error.message);
-    } else {
-      Alert.alert(
-        'Registro exitoso 🎉',
-        'Revisa tu correo electrónico para confirmar tu cuenta antes de iniciar sesión.',
-        [{ text: 'OK' }]
-      );
-    }
-  };
-
   return (
     <View style={styles.container}>
       <View style={styles.logoContainer}>
@@ -88,6 +62,7 @@ export default function LoginScreen() {
           type="email"
           value={email}
           onChangeText={setEmail}
+          placeholder="ejemplo@correo.com"
         />
 
         <CustomInput
@@ -95,6 +70,7 @@ export default function LoginScreen() {
           type="password"
           value={password}
           onChangeText={setPassword}
+          placeholder="Ingresa tu contraseña"
         />
 
         <CustomButton
@@ -105,21 +81,11 @@ export default function LoginScreen() {
         />
 
         <CustomButton
-          title={loading ? "Procesando..." : "Registrarse"}
-          onPress={handleRegister}
+          title="Registrarse"
+          onPress={() => navigation.navigate('Register')}
           variant="secondary"
-          disabled={loading}
         />
 
-        {/* Enlace de simulación (comentado para cumplir con el criterio) */}
-        {/* 
-        <Text 
-          style={styles.bypassLink}
-          onPress={() => navigation.replace('HomeTabs')}
-        >
-          Entrar directamente (Simulación de Login) →
-        </Text> 
-        */}
       </View>
     </View>
   );
@@ -156,10 +122,5 @@ const styles = StyleSheet.create({
   formContainer: {
     width: '100%',
     alignItems: 'center',
-  },
-  bypassLink: {
-    marginTop: 20,
-    color: colors.primary,
-    textDecorationLine: 'underline',
   },
 });

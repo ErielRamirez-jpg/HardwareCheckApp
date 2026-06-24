@@ -8,6 +8,8 @@ interface CustomInputProps {
   value: string;
   onChangeText: (text: string) => void;
   error?: string;
+  placeholder?: string;           // ← Añadido
+  autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters'; // ← Añadido
 }
 
 const CustomInput: React.FC<CustomInputProps> = ({
@@ -16,6 +18,8 @@ const CustomInput: React.FC<CustomInputProps> = ({
   value,
   onChangeText,
   error,
+  placeholder,
+  autoCapitalize = 'none',
 }) => {
   const [internalError, setInternalError] = useState('');
 
@@ -56,8 +60,10 @@ const CustomInput: React.FC<CustomInputProps> = ({
         onChangeText={handleChange}
         secureTextEntry={type === 'password'}
         keyboardType={type === 'email' ? 'email-address' : type === 'phone' ? 'phone-pad' : 'default'}
-        autoCapitalize="none"
-        placeholderTextColor="#666666" // Añade un tono sutil si decides usar placeholders
+        autoCapitalize={autoCapitalize}
+        placeholder={placeholder}
+        placeholderTextColor="#888888"
+        autoCorrect={false}
       />
       
       {showError && <Text style={styles.errorText}>{showError}</Text>}
@@ -85,8 +91,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     width: '100%',
   },
-  inputError: { borderColor: colors.error },
-  errorText: { color: colors.error, fontSize: 12, marginTop: 4 },
+  inputError: { 
+    borderColor: colors.error 
+  },
+  errorText: { 
+    color: colors.error, 
+    fontSize: 12, 
+    marginTop: 4 
+  },
 });
 
 export default CustomInput;

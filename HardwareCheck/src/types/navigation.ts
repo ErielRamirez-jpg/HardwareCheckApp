@@ -1,6 +1,8 @@
 export type RootStackParamList = {
   Login: undefined;
+   Register: undefined;
   HomeTabs: undefined;
+  DeviceDetail: { deviceId: string } | undefined;
 };
 
 export type HomeTabParamList = {
