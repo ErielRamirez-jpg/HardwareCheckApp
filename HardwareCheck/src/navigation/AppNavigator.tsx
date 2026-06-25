@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from '../screens/LoginScreen';
-import RegisterScreen from '../screens/RegisterScreen';   
+import RegisterScreen from '../screens/RegisterScreen';
 import TabNavigator from './TabNavigator';
 import DeviceDetailScreen from '../screens/DeviceDetailScreen'; 
 import { useAuth } from '../context/AuthContext';   
@@ -15,7 +15,6 @@ export default function AppNavigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={user ? "HomeTabs" : "Login"}
         screenOptions={{ headerShown: false }}
       >
         {!user ? (

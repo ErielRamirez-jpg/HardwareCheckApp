@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useRef } from 'react';
 import { StyleSheet, Text, View, Alert, ActivityIndicator, Platform } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import { useFocusEffect } from '@react-navigation/native'; // <--- Para refrescar al enfocar la pantalla
+import { useFocusEffect } from '@react-navigation/native';
 import CustomButton from '../components/CustomButton';
 import { supabase } from '../services/supabaseClient'; 
 import { colors } from '../Theme/Colors'; 

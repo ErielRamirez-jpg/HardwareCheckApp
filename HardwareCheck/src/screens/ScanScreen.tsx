@@ -1,11 +1,11 @@
-// ASÍ DEBE VERSE TU ARCHIVO COMPLETO AHORA MISMO
+
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Alert, Modal, TextInput, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Camera, CameraView } from 'expo-camera';
 import { useNavigation, useIsFocused } from '@react-navigation/native';
 import { supabase } from '../services/supabaseClient';
 import CustomButton from '../components/CustomButton';
-import { colors } from '../Theme/Colors'; // Asegúrate de que esta ruta sea correcta según tu proyecto
+import { colors } from '../Theme/Colors';
 
 export default function ScanScreen() {
   const navigation = useNavigation<any>();

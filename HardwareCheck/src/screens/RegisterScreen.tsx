@@ -47,11 +47,16 @@ export default function RegisterScreen() {
             ? 'Ya existe una cuenta con este correo electrónico.' 
             : error.message
         );
-      } else if (data.user) {
+     } else if (data.user) {
         Alert.alert(
           '¡Registro exitoso! 🎉',
           'Tu cuenta ha sido creada correctamente.\n\nAhora puedes iniciar sesión.',
-          [{ text: 'Ir a Iniciar Sesión', onPress: () => navigation.replace('Login') }]
+          [
+            { 
+              text: 'Ir a Iniciar Sesión', 
+              onPress: () => navigation.navigate('Login')   // Cambiado de replace a navigate
+            }
+          ]
         );
       }
     } catch (err: any) {
