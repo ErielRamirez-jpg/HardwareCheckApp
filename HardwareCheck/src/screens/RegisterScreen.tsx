@@ -50,11 +50,15 @@ export default function RegisterScreen() {
      } else if (data.user) {
         Alert.alert(
           '¡Registro exitoso! 🎉',
-          'Tu cuenta ha sido creada correctamente.\n\nAhora puedes iniciar sesión.',
+          'Tu cuenta ha sido creada correctamente.',
           [
             { 
-              text: 'Ir a Iniciar Sesión', 
-              onPress: () => navigation.navigate('Login')   // Cambiado de replace a navigate
+              text: 'Aceptar', 
+              onPress: () => {
+                // No navegamos a nada. 
+                // Al cerrar el alert, el AuthContext detectará el usuario
+                // y AppNavigator cambiará la pantalla automáticamente.
+              }
             }
           ]
         );
