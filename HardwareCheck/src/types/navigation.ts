@@ -10,4 +10,5 @@ export type HomeTabParamList = {
   Scan: undefined;
   RecordVoice: undefined;
   VoiceHistory: undefined;
+  Configuracion: undefined;
 };
